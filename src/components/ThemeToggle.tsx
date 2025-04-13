@@ -4,16 +4,21 @@ import { motion } from 'framer-motion';
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
-      return document.documentElement.classList.contains('dark');
+      const storedTheme = localStorage.getItem('theme');
+      if (storedTheme) return storedTheme === 'dark';
+  
+      return true;
     }
-    return false;
+    return true;
   });
 
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
     } else {
       document.documentElement.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
     }
   }, [isDark]);
 
@@ -28,8 +33,8 @@ const ThemeToggle = () => {
       aria-label="Toggle theme"
     >
       <motion.div
-        initial={false}
-        animate={{ rotate: isDark ? 180 : 0 }}
+        initial={true}
+        animate={{ rotate: isDark ? 0 : 180 }}
         transition={{ duration: 0.3 }}
       >
         {isDark ? (
