@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 import ThemeToggle from './ThemeToggle';
 
 const navigation = [
@@ -28,54 +27,15 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
-          <Link
-            to="/"
-            className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
-          >
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className={`nav-link ${location.pathname === "/projects" ? "active" : ""}`}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/experience"
-            className={`nav-link ${location.pathname === "/experience" ? "active" : ""}`}
-          >
-            Experience
-          </Link>
-          <Link
-            to="/education"
-            className={`nav-link ${location.pathname === "/education" ? "active" : ""}`}
-          >
-            Education
-          </Link>
-          <Link
-            to="/achievements"
-            className={`nav-link ${location.pathname === "/achievements" ? "active" : ""}`}
-          >
-            Achievements
-          </Link>
-          <Link
-            to="/blog"
-            className={`nav-link ${location.pathname === "/blog" ? "active" : ""}`}
-          >
-            Blog
-          </Link>
-          <Link
-            to="/contact"
-            className={`nav-link ${location.pathname === "/contact" ? "active" : ""}`}
-          >
-            Contact
-          </Link>
+          {navigation.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`nav-link ${location.pathname === item.path ? "active" : ""}`}
+            >
+              {item.name}
+            </Link>
+          ))}
           <ThemeToggle />
         </div>
 
@@ -109,62 +69,16 @@ const Navbar = () => {
         className="md:hidden overflow-hidden"
       >
         <div className="container py-4 space-y-4">
-          <Link
-            to="/"
-            className={`block nav-link ${location.pathname === "/" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Home
-          </Link>
-          <Link
-            to="/about"
-            className={`block nav-link ${location.pathname === "/about" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            About
-          </Link>
-          <Link
-            to="/projects"
-            className={`block nav-link ${location.pathname === "/projects" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Projects
-          </Link>
-          <Link
-            to="/experience"
-            className={`block nav-link ${location.pathname === "/experience" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Experience
-          </Link>
-          <Link
-            to="/education"
-            className={`block nav-link ${location.pathname === "/education" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Education
-          </Link>
-          <Link
-            to="/achievements"
-            className={`block nav-link ${location.pathname === "/achievements" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Achievements
-          </Link>
-          <Link
-            to="/blog"
-            className={`block nav-link ${location.pathname === "/blog" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Blog
-          </Link>
-          <Link
-            to="/contact"
-            className={`block nav-link ${location.pathname === "/contact" ? "active" : ""}`}
-            onClick={() => setIsOpen(false)}
-          >
-            Contact
-          </Link>
+          {navigation.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`block nav-link ${location.pathname === item.path ? "active" : ""}`}
+              onClick={() => setIsOpen(false)}
+            >
+              {item.name}
+            </Link>
+          ))}
           <div className="pt-4">
             <ThemeToggle />
           </div>

@@ -14,35 +14,35 @@ const Achievements = () => {
   const achievements: Achievement[] = [
     {
       id: 1,
-      title: 'AWS Solutions Architect Professional',
-      organization: 'Amazon Web Services',
+      title: 'Codeforces Expert',
+      organization: 'Codeforces',
       date: '2023',
-      description: 'Certified in designing and implementing distributed systems on AWS.',
-      link: 'https://aws.amazon.com/verification'
+      description: 'Secured ranks of 538, 726, and 763 in Division 2 Contests, demonstrating strong problem-solving abilities and algorithmic thinking.',
+      link: 'https://codeforces.com/profile/nirvana___flame'
     },
     {
       id: 2,
-      title: 'First Place - AI Hackathon',
-      organization: 'Tech Conference 2023',
+      title: 'LeetCode Knight',
+      organization: 'LeetCode',
       date: '2023',
-      description: 'Developed an AI-powered solution for sustainable energy management.',
-      link: 'https://hackathon.com/winner'
+      description: 'Achieved ranks of 289 and 1044 in Biweekly and Weekly Contests, showcasing expertise in competitive programming and data structures.',
+      link: 'https://leetcode.com/Nirvana__Flame/'
     },
     {
       id: 3,
-      title: 'Best Technical Paper Award',
-      organization: 'IEEE Conference',
+      title: 'Advanced Graph Theory',
+      organization: 'NPTEL',
       date: '2022',
-      description: 'Published research on scalable microservices architecture.',
-      link: 'https://ieee.org/paper'
+      description: 'Earned Silver Certificate in Advanced Graph Theory, demonstrating deep understanding of complex graph algorithms and their applications.',
+      link: 'https://nptel.ac.in'
     },
     {
       id: 4,
-      title: 'Open Source Contributor',
-      organization: 'React Community',
+      title: 'National Chess Championship',
+      organization: 'SGFI',
       date: '2022',
-      description: 'Made significant contributions to React documentation and bug fixes.',
-      link: 'https://github.com/facebook/react'
+      description: 'Represented Delhi State five times in National Chess Championship and secured a Bronze medal as Captain, with an International Chess FIDE Rating of 1627.',
+      link: 'https://www.fide.com'
     }
   ];
 
@@ -55,9 +55,9 @@ const Achievements = () => {
           transition={{ duration: 0.5 }}
           className="mb-12"
         >
-          <h1 className="text-4xl font-bold mb-6">Achievements</h1>
+          <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Achievements</h1>
           <p className="text-lg text-gray-300">
-            Recognition of my contributions to technology and software development.
+            Recognition of my achievements in competitive programming, technical expertise, and chess.
           </p>
         </motion.div>
 
@@ -68,16 +68,16 @@ const Achievements = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm hover:bg-gray-800/70 transition-colors"
+              className="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300"
             >
               <div className="flex flex-col h-full">
                 <div className="mb-4">
-                  <h3 className="text-xl font-bold mb-1">{achievement.title}</h3>
-                  <p className="text-blue-400">{achievement.organization}</p>
+                  <h3 className="text-xl font-bold mb-1 text-white">{achievement.title}</h3>
+                  <p className="text-blue-400 font-medium">{achievement.organization}</p>
                   <p className="text-gray-400 text-sm">{achievement.date}</p>
                 </div>
 
-                <p className="text-gray-300 mb-4 flex-grow">
+                <p className="text-gray-300 mb-4 flex-grow leading-relaxed">
                   {achievement.description}
                 </p>
 
@@ -86,11 +86,11 @@ const Achievements = () => {
                     href={achievement.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center"
+                    className="text-blue-400 hover:text-blue-300 transition-colors inline-flex items-center group"
                   >
                     View Details
                     <svg
-                      className="w-4 h-4 ml-1"
+                      className="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -116,24 +116,24 @@ const Achievements = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
           className="mt-16"
         >
-          <h2 className="text-2xl font-bold mb-6">Areas of Expertise</h2>
+          <h2 className="text-2xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">Areas of Expertise</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             {[
-              'Cloud Architecture',
-              'System Design',
-              'Team Leadership',
-              'Technical Writing',
-              'Code Review',
-              'Agile Methodologies',
+              'System Architecture',
+              'Database Design',
+              'Payment Systems',
               'Performance Optimization',
-              'Security Best Practices'
+              'Competitive Programming',
+              'Algorithm Design',
+              'Problem Solving',
+              'Technical Leadership'
             ].map((skill, index) => (
               <motion.div
                 key={skill}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-gray-800/50 p-4 rounded-lg text-center backdrop-blur-sm"
+                className="bg-gray-800/50 p-4 rounded-lg text-center backdrop-blur-sm hover:bg-gray-800/70 transition-all duration-300"
               >
                 <span className="text-gray-300">{skill}</span>
               </motion.div>

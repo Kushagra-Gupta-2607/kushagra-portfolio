@@ -37,6 +37,8 @@ function App() {
             </Routes>
           </motion.div>
         </AnimatePresence>
+        <Analytics />
+        <SpeedInsights />
       </div>
     </Router>
   );

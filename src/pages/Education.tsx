@@ -1,124 +1,122 @@
+import React from 'react';
 import { motion } from 'framer-motion';
 
-interface Education {
+interface EducationItem {
   id: number;
   institution: string;
   degree: string;
   field: string;
   period: string;
   location: string;
-  gpa?: string;
-  achievements?: string[];
-  relevantCourses?: string[];
+  gpa: string;
+  achievements: string[];
+  relevantCourses: string[];
 }
 
-const Education = () => {
-  const education: Education[] = [
+const Education: React.FC = () => {
+  const education: EducationItem[] = [
     {
       id: 1,
-      institution: 'University of Technology',
-      degree: 'Master of Science',
-      field: 'Computer Science',
-      period: '2015 - 2017',
-      location: 'San Francisco, CA',
-      gpa: '3.8/4.0',
+      institution: "Jaypee Institute of Information Technology",
+      degree: "Bachelor of Technology",
+      field: "Computer Science",
+      period: "2019 - 2023",
+      location: "Noida, India",
+      gpa: "7.8",
       achievements: [
-        'Graduated with Distinction',
-        'Research Assistant in Machine Learning Lab',
-        'Published 2 papers in IEEE conferences'
+        "Secured ranks of 538, 726, and 763 in Codeforces Division 2 contests",
+        "Achieved Knight rank on LeetCode with ranks of 289 and 1044 in Biweekly and Weekly Contests",
+        "Advanced Graph Theory (Silver Certificate) by NPTEL",
+        "Represented Delhi State in National Chess Championship and secured Bronze medal as Captain"
       ],
       relevantCourses: [
-        'Advanced Algorithms',
-        'Distributed Systems',
-        'Machine Learning',
-        'Cloud Computing'
-      ]
-    },
-    {
-      id: 2,
-      institution: 'State University',
-      degree: 'Bachelor of Science',
-      field: 'Computer Science',
-      period: '2011 - 2015',
-      location: 'New York, NY',
-      gpa: '3.7/4.0',
-      achievements: [
-        "Dean's List (All Semesters)",
-        'Computer Science Department Award',
-        'Hackathon Winner (2014)'
-      ],
-      relevantCourses: [
-        'Data Structures',
-        'Operating Systems',
-        'Database Systems',
-        'Software Engineering',
-        'Web Development'
+        "Data Structures and Algorithms",
+        "Database Management Systems",
+        "Operating Systems",
+        "Computer Networks",
+        "Software Engineering",
+        "Machine Learning",
+        "Artificial Intelligence",
+        "Blockchain Technology"
       ]
     }
   ];
 
   return (
     <div className="min-h-screen pt-20 px-4">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-4xl mx-auto py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-12"
+          className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold mb-6">Education</h1>
-          <p className="text-lg text-gray-300">
-            My academic journey and achievements in computer science.
+          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            Education
+          </h1>
+          <p className="text-gray-600 dark:text-gray-400 text-lg max-w-2xl mx-auto">
+            My academic journey and achievements in computer science and competitive programming.
           </p>
         </motion.div>
 
-        <div className="space-y-12">
+        <div className="space-y-8">
           {education.map((edu, index) => (
             <motion.div
               key={edu.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-gray-800/50 rounded-lg p-6 backdrop-blur-sm"
             >
-              <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
-                <div>
-                  <h3 className="text-2xl font-bold">{edu.institution}</h3>
-                  <p className="text-blue-400 text-lg">{edu.degree} in {edu.field}</p>
+              <div className="bg-blue-50 dark:bg-gray-800/50 rounded-lg p-6 group hover:bg-blue-100 dark:hover:bg-gray-800/70 transition-colors shadow-lg">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+                  <div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                      {edu.institution}
+                    </h3>
+                    <p className="text-blue-600 dark:text-blue-400 font-medium">
+                      {edu.degree} in {edu.field}
+                    </p>
+                  </div>
+                  <div className="mt-2 md:mt-0 text-sm text-gray-600 dark:text-gray-400">
+                    {edu.period} • {edu.location}
+                  </div>
                 </div>
-                <div className="text-gray-400 text-sm mt-2 md:mt-0">
-                  <p>{edu.period}</p>
-                  <p>{edu.location}</p>
-                  {edu.gpa && <p>GPA: {edu.gpa}</p>}
-                </div>
-              </div>
 
-              {edu.achievements && (
-                <div className="mb-4">
-                  <h4 className="text-lg font-semibold mb-2">Achievements</h4>
-                  <ul className="list-disc list-inside text-gray-300">
+                <div className="mb-6">
+                  <p className="text-gray-600 dark:text-gray-400">
+                    GPA: {edu.gpa}
+                  </p>
+                </div>
+
+                <div className="mb-6">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                    Key Achievements
+                  </h4>
+                  <ul className="list-disc list-inside space-y-2">
                     {edu.achievements.map((achievement, i) => (
-                      <li key={i} className="mb-1">{achievement}</li>
+                      <li key={i} className="text-gray-600 dark:text-gray-400">
+                        {achievement}
+                      </li>
                     ))}
                   </ul>
                 </div>
-              )}
 
-              {edu.relevantCourses && (
                 <div>
-                  <h4 className="text-lg font-semibold mb-2">Relevant Courses</h4>
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">
+                    Relevant Courses
+                  </h4>
                   <div className="flex flex-wrap gap-2">
-                    {edu.relevantCourses.map(course => (
+                    {edu.relevantCourses.map((course, i) => (
                       <span
-                        key={course}
-                        className="px-3 py-1 bg-blue-600/20 text-blue-400 rounded-full text-sm"
+                        key={i}
+                        className="px-2 py-1 rounded-md text-xs bg-purple-100 dark:bg-purple-500/10 text-purple-700 dark:text-purple-400"
                       >
                         {course}
                       </span>
                     ))}
                   </div>
                 </div>
-              )}
+              </div>
             </motion.div>
           ))}
         </div>
